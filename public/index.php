@@ -16,8 +16,6 @@ require __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../controllers/UsuarioController.php';
 require_once __DIR__ . '/../controllers/ProductosController.php';
 require_once __DIR__ . '/../controllers/ComandaController.php';
-require_once __DIR__ . '/../controllers/CajaController.php';
-require_once __DIR__ . '/../controllers/EncuestaController.php';
 require_once __DIR__ . '/../controllers/ClienteController.php';
 
 
@@ -33,20 +31,14 @@ $app->addErrorMiddleware(true, true, true);
 $app->addBodyParsingMiddleware();
 
 
-// Instancia mi controlador de usuarios
 $usuarioController = new UsuarioController();
 
-// Instancia mi controlador de productos
 $productoController = new ProductoController();
 
-// Instancia mi controlador de mesas
+$clienteController = new ClienteController();
+
 $comandaController = new ComandaController();
 
-// Instancia mi controlador de caja
-$cajaController = new CajaController();
-
-// I nstancia mi controlador de clientes
-$clienteController = new ClienteController();
 
 $app->get('[/]', function (Request $request, Response $response) {    
     $payload = json_encode(array("mensaje" => "Funciona"));
@@ -56,7 +48,7 @@ $app->get('[/]', function (Request $request, Response $response) {
 });
 
 $app->group('/api', function (RouteCollectorProxy $group) 
-use ($usuarioController, $productoController, $cajaController, $encuestaController, $comandaController, $clienteController) {
+use ($usuarioController, $productoController, $comandaController, $clienteController) {
   
     // Define las rutas de usuarioController
     $group->get('/usuario/{idUsuario}', [$usuarioController, 'TraerUno']);
@@ -72,31 +64,6 @@ use ($usuarioController, $productoController, $cajaController, $encuestaControll
     $group->post('/agregar-producto', [$productoController, 'CargarUno']);
     $group->post('/modificar-producto', [$productoController, 'ModificarUno']);
     $group->post('/borrar-producto/{idProducto}', [$productoController, 'BorrarUno']); 
-
-    // Define las rutas  de cajaController
-    $group->post('/actualizar-valor-total', [$cajaController, 'CargarUno']);
-    $group->post('/borrar-valor-total', [$cajaController, 'BorrarUno']);
-    $group->post('/modificar-valor-total', [$cajaController, 'ModificarUno']);
-    $group->get('/valores-totales', [$cajaController, 'TraerTodos']);
-    $group->get('/valor-total', [$cajaController, 'TraerUno']);
-
-
-    // Rutas de comandaController
-    $group->post('/insertar-pedido', [$comandaController, 'InsertarPedido']);
-    $group->get('/pedidos', [$comandaController, 'TraerTodos']);
-    $group->get('/pedido/{id}', [$comandaController, 'TraerUnPedido']);
-    $group->get('/pedido-por-codigo/{codigo_pedido}', [$comandaController, 'TraerUnPedidoPorCodigo']);
-    $group->post('/modificar-pedido', [$comandaController, 'ModificarPedidoParametros']);
-    $group->post('/cambiar-estado-pedido', [$comandaController, 'CambiarEstadoPedido']);
-    $group->post('/asignar-empleado', [$comandaController, 'AsignarEmpleado']);
-    $group->post('/insertar-productos-a-pedido', [$comandaController, 'InsertarProductosAPedido']);
-    $group->post('/incrementar-cant-pedido', [$comandaController, 'IncrementarCantPedido']);
-    $group->get('/productos-por-pedido/{idPedido}', [$comandaController, 'ObtenerProductosPorPedido']);
-    $group->get('/pedidos-con-retraso', [$comandaController, 'ObtenerPedidosConRetraso']);
-    $group->get('/pedidos-sin-retraso', [$comandaController, 'ObtenerPedidosSinRetraso']);
-    $group->post('/codigo-repetido', [$comandaController, 'codigoRepetido']);
-    $group->get('/pedidos-por-estado/{estado_pedido}', [$comandaController, 'TraerPedidosPorEstado']);
-    $group->post('/borrar-pedido', [$comandaController, 'BorrarPedido']);
 
     // Rutas del ClienteController
     $group->post('/cliente/cargar', [$clienteController, 'CargarUno']);

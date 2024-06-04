@@ -11,8 +11,7 @@ class UsuarioController implements IApiUsable
 
      public function CargarUno($request, $response, $args)
      {
-         $this->verificarAcceso($request, 'Socio');
- 
+
          $data = $request->getParsedBody();
  
          if (empty($data['nombre']) || empty($data['mail']) || empty($data['clave']) || empty($data['sector'])) {

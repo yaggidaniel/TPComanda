@@ -16,12 +16,13 @@ class Producto
     public function InsertarProductoParametros()
     {
         $objetoAccesoDato = ConexionPDO::obtenerInstancia();
-        $consulta = $objetoAccesoDato->prepararConsulta("INSERT INTO productos (nombreProducto, precioProducto, sector) VALUES (:nombreProducto, :precioProducto, :sector)");
+        $consulta = $objetoAccesoDato->prepararConsulta("INSERT INTO productos (nombreProducto, precioProducto, sector, estado) VALUES (:nombreProducto, :precioProducto, :sector, :estado)");
         $consulta->bindValue(':nombreProducto', $this->nombreProducto, PDO::PARAM_STR);
         $consulta->bindValue(':precioProducto', $this->precioProducto, PDO::PARAM_STR);
         $consulta->bindValue(':sector', $this->sector, PDO::PARAM_STR);
+        $consulta->bindValue(':estado', 'Disponible', PDO::PARAM_STR); // Valor por defecto 'Disponible'
         $consulta->execute();
-
+    
         return $objetoAccesoDato->obtenerUltimoId();
     }
 
@@ -37,7 +38,7 @@ class Producto
     public static function TraerUnProducto($idProducto)
     {
         $objetoAccesoDato = ConexionPDO::obtenerInstancia();
-        $consulta = $objetoAccesoDato->prepararConsulta("SELECT idProducto, nombreProducto, precioProducto, sector FROM productos where idProducto = :idProducto");
+        $consulta = $objetoAccesoDato->prepararConsulta("SELECT idProducto, nombreProducto, precioProducto, sector, estado FROM productos where idProducto = :idProducto");
         $consulta->bindValue(':idProducto', $idProducto, PDO::PARAM_INT);
         $consulta->execute();
         $productoBuscado = $consulta->fetchObject('Producto');
@@ -45,21 +46,23 @@ class Producto
         return $productoBuscado;
     }  
 
-    public static function TraerUnProductoPorNombre($nombreProducto)
+    public static function TraerUnProductoPorIdONombre($idProducto = null, $nombreProducto = null)
     {
         $objetoAccesoDato = ConexionPDO::obtenerInstancia();
-        $consulta = $objetoAccesoDato->prepararConsulta("SELECT idProducto, nombreProducto, precioProducto, sector FROM productos WHERE nombreProducto = :nombreProducto");
-        $consulta->bindValue(':nombreProducto', $nombreProducto, PDO::PARAM_STR);
-        $consulta->execute();
-
-        $productoBuscado = $consulta->fetchObject('Producto');
-        if (!$productoBuscado) {
-            return null; // Producto no encontrado
+        if ($idProducto !== null) {
+            $consulta = $objetoAccesoDato->prepararConsulta("SELECT idProducto, nombreProducto, precioProducto, sector FROM productos WHERE idProducto = :idProducto");
+            $consulta->bindValue(':idProducto', $idProducto, PDO::PARAM_INT);
+        } elseif ($nombreProducto !== null) {
+            $consulta = $objetoAccesoDato->prepararConsulta("SELECT idProducto, nombreProducto, precioProducto, sector FROM productos WHERE nombreProducto = :nombreProducto");
+            $consulta->bindValue(':nombreProducto', $nombreProducto, PDO::PARAM_STR);
+        } else {
+            return null; // Si no se proporciona idProducto ni nombreProducto, retornar null
         }
-
-        return $productoBuscado;
+        $consulta->execute();
+        $producto = $consulta->fetchObject('Producto');
+        return $producto ?: null; // Si no se encuentra el producto, retornar null
     }
-
+    
 
     public function ModificarProductoParametros()
     {
@@ -75,7 +78,7 @@ class Producto
         if (isset($this->estado)) {
             $consulta->bindValue(':estado', $this->estado, PDO::PARAM_STR);
         } else {
-            $consulta->bindValue(':estado', 'activo', PDO::PARAM_STR);
+            $consulta->bindValue(':estado', 'Disponible', PDO::PARAM_STR);
         }
 
         $resultado = $consulta->execute();

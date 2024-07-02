@@ -2,10 +2,12 @@
 
 require_once __DIR__ . '/../db/ConexionPDO.php';
 require_once __DIR__ . '/../controllers/UsuarioController.php';
+require_once __DIR__ . '/../middlewares/AuthJWT.php';
 
 
 
 class Usuario {
+    
     public $idUsuario;
     public $nombre;
     public $mail;
@@ -29,12 +31,18 @@ class Usuario {
         return $this->idUsuario;
     }
 
-    public function crearUsuario() {
+    public function crearUsuario()
+    {
+        $usuarioExistente = self::obtenerUsuarioMail($this->mail);
+        if ($usuarioExistente) {
+            throw new Exception("El usuario con correo {$this->mail} ya existe.");
+        }
+
         $objConexionPDO = ConexionPDO::obtenerInstancia();
         $consulta = $objConexionPDO->prepararConsulta("INSERT INTO 
-        usuarios (idUsuario, nombre, mail, clave, puesto, estado, idEstado, idPuesto, fecha_ingreso, fecha_salida) 
-        VALUES 
-        (:idUsuario, :nombre, :mail, :clave, :puesto, :estado, :idEstado, :idPuesto, :fecha_ingreso, :fecha_salida)");
+            usuarios (idUsuario, nombre, mail, clave, puesto, estado, idEstado, idPuesto, fecha_ingreso, fecha_salida) 
+            VALUES 
+            (:idUsuario, :nombre, :mail, :clave, :puesto, :estado, :idEstado, :idPuesto, :fecha_ingreso, :fecha_salida)");
 
         $consulta->bindValue(':idUsuario', $this->idUsuario, PDO::PARAM_INT);
         $consulta->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
@@ -149,6 +157,35 @@ class Usuario {
         else
             return $array[$random]->GetIdUsuario();
     }
+
+    public function loginUsuario($mail, $contrasena) {
+        $conexion = ConexionPDO::obtenerInstancia();
+
+        $consultaExistencia = $conexion->prepararConsulta("SELECT * FROM usuarios WHERE mail = :usuario LIMIT 1");
+        $consultaExistencia->bindValue(':usuario', $mail, PDO::PARAM_STR);
+        $consultaExistencia->execute();
+        $usuario = $consultaExistencia->fetch(PDO::FETCH_ASSOC);
+
+        if (!$usuario || !password_verify($contrasena, $usuario['clave'])) {
+            throw new Exception("Credenciales inválidas");
+        }
+
+        $datosToken = array(
+            'id' => $usuario['idUsuario'],
+            'mail' => $usuario['mail'],
+            'perfil' => $usuario['puesto'],
+            'peso' => $usuario['idPuesto'],
+
+        );
+
+        $token = AuthJWT::createToken($datosToken);
+
+        return $token;
+    }
+    
+
+
+
 }
 
 

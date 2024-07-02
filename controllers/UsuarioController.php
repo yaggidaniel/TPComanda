@@ -66,6 +66,29 @@ class UsuarioController implements IApiUsable
      }
 
 
+     public function loginUsuarioController($request, $response, $args)
+     {
+         $datos = $request->getParsedBody();
+         $usuario = $datos['mail'] ?? '';
+         $contrasena = $datos['clave'] ?? '';
+ 
+         if (empty($usuario) || empty($contrasena)) {
+             $response->getBody()->write(json_encode(['error' => 'Falta el usuario o la contraseña']));
+             return $response->withHeader('Content-Type', 'application/json')->withStatus(400);
+         }
+ 
+         $usuarioModel = new Usuario();
+         try {
+             $token = $usuarioModel->loginUsuario($usuario, $contrasena);
+             $response->getBody()->write(json_encode(['token' => $token]));
+             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+         } catch (Exception $e) {
+             $response->getBody()->write(json_encode(['error' => $e->getMessage()]));
+             return $response->withHeader('Content-Type', 'application/json')->withStatus(401);
+         }
+     }
+
+
     public function BorrarUno($request, $response, $args)
     {
 

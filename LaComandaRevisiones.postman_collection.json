@@ -1,0 +1,1824 @@
+{
+	"info": {
+		"_postman_id": "19126091-4f3e-4f31-a241-60d5cd436847",
+		"name": "LaComandaRevisiones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4241369"
+	},
+	"item": [
+		{
+			"name": "Criterios MVP",
+			"item": [
+				{
+					"name": "test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:666/public/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alta usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "Cocinero",
+									"type": "text"
+								},
+								{
+									"key": "mail",
+									"value": "Cocinero@comanda.com",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "sector",
+									"value": "Cocinero",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/dar-de-alta-usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"dar-de-alta-usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mail",
+									"value": "Socio@comanda.com",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "segundo",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "cliente",
+									"type": "text"
+								},
+								{
+									"key": "tipoDocumento",
+									"value": "DNI",
+									"type": "text"
+								},
+								{
+									"key": "numeroDocumento",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "Daniel",
+									"type": "text"
+								},
+								{
+									"key": "mail",
+									"value": "mozo1@comanda.com",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "sector",
+									"value": "buenos Aires",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "Bartender",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alta producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk3OTMzODcsImV4cCI6MTcxOTgyMzM4NywiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.j9R-BE8DLhjeD9VlpJLI_jqhyB2GT3yfdmV388XDRi0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombreProducto",
+									"value": "Daikiri",
+									"type": "text"
+								},
+								{
+									"key": "precioProducto",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "categoriaProducto",
+									"value": "Bartender",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/agregar-producto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"agregar-producto"
+							],
+							"query": [
+								{
+									"key": "nombreProducto",
+									"value": "Milanga",
+									"disabled": true
+								},
+								{
+									"key": "precioProducto",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "categoriaProducto",
+									"value": "Cocina",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar productos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk3OTE2OTQsImV4cCI6MTcxOTgyMTY5NCwiZGF0YSI6eyJpZCI6NCwibWFpbCI6IkJhcnRlbmRlckBjb21hbmRhLmNvbSIsInBlcmZpbCI6IkJhcnRlbmRlciIsInBlc28iOjF9fQ.kPCk-jN0cgX_Z1FCFCo56iOK3T4dyBnyuJkOnF1yKoU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mesa alta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_comanda",
+									"value": "123456",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "mesa4",
+									"type": "text"
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": "Disponible",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/mesa/cargar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"mesa",
+								"cargar"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar mesa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/mesa?idMesa=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"mesa"
+							],
+							"query": [
+								{
+									"key": "idMesa",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar todas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/todasLasMesas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"todasLasMesas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alta comanda",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4NjI5NzMsImV4cCI6MTcxOTg5Mjk3MywiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.mhL7n_RSW4WjLkLGzmNyyBivHeIeFFp633PaldmNuoQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_mesa",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "idUsuario",
+									"value": "Cliente con hora",
+									"type": "text"
+								},
+								{
+									"key": "id_estado",
+									"value": "esperando",
+									"type": "text"
+								},
+								{
+									"key": "tiempoEspera",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "totalAPagar",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/cargar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"cargar"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregarProducto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4NjI5NzMsImV4cCI6MTcxOTg5Mjk3MywiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.mhL7n_RSW4WjLkLGzmNyyBivHeIeFFp633PaldmNuoQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idComanda",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "idProducto",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/agregarProducto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"agregarProducto"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "idProducto",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUnPedidoConProductos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/comandaConProductos?idComanda=15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"comandaConProductos"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "relacionarFotoEnComanda",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4NTgyNjAsImV4cCI6MTcxOTg4ODI2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.Naigs9KEAWuFdD5dUV_lITX3h-oKm6w19gZVemFxATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idDeComanda",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "imagen",
+									"type": "file",
+									"src": "/C:/Users/verra/Desktop/perrosPoker.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/relacionarFotoEnComanda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"relacionarFotoEnComanda"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarPedidosPorSector",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4NTgyNjAsImV4cCI6MTcxOTg4ODI2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.Naigs9KEAWuFdD5dUV_lITX3h-oKm6w19gZVemFxATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sector",
+									"value": "Bartender",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/listarPedidosPorSector",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"listarPedidosPorSector"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerProductosPorEstadoPorSector",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4NTgyNjAsImV4cCI6MTcxOTg4ODI2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.Naigs9KEAWuFdD5dUV_lITX3h-oKm6w19gZVemFxATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sector",
+									"value": "Bartender",
+									"type": "text"
+								},
+								{
+									"key": "estado",
+									"value": "Pendiente",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/obtenerProductosPorEstadoPorSector",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"obtenerProductosPorEstadoPorSector"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cambiarEstadoYTiempoPreparacion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idPedidoProducto",
+									"value": "14",
+									"type": "text"
+								},
+								{
+									"key": "estado",
+									"value": "listo para servir",
+									"type": "text"
+								},
+								{
+									"key": "tiempoPreparacion",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/cambiarEstadoYTiempoPreparacion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"cambiarEstadoYTiempoPreparacion"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerTiempoEspera",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4NTgyNjAsImV4cCI6MTcxOTg4ODI2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.Naigs9KEAWuFdD5dUV_lITX3h-oKm6w19gZVemFxATg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/cliente/obtenerTiempoEspera",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"cliente",
+								"obtenerTiempoEspera"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TraerTodos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/TraerTodosLosPedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"TraerTodosLosPedidos"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TraerPedidosListos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/TraerPedidosListos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"TraerPedidosListos"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar estado demesa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idMesa",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "mesa3",
+									"type": "text"
+								},
+								{
+									"key": "estado",
+									"value": "Entregado",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/mesa/modificar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"mesa",
+								"modificar"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/TraerTodosLosPedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"TraerTodosLosPedidos"
+							],
+							"query": [
+								{
+									"key": "id_comanda",
+									"value": "abc12",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "Mesa 1",
+									"disabled": true
+								},
+								{
+									"key": "hora_llegada",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cobrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idComanda",
+									"value": "11",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/cobrarComanda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"cobrarComanda"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "11",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cobrar ok",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjY0NTYsImV4cCI6MTcxOTk1NjQ1NiwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.QMlk5lDuKS4pzGrYBP__ld-wW0gaKQhfpMUATvS3uHc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idComanda",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/cobrarComanda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"cobrarComanda"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "11",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contestar encuesta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idMesa",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "puntajeMesa",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "puntajeRestaurante",
+									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "puntajeMozo",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "puntajeCocinero",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "experiencia",
+									"value": "muy rico todo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/cliente/contestarEncuesta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"cliente",
+								"contestarEncuesta"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "11",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerTodasLasEncuestas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idMesa",
+									"value": "4",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeMesa",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeRestaurante",
+									"value": "9",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeMozo",
+									"value": "7",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeCocinero",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "experiencia",
+									"value": "muy rico todo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/encuestas/todasLasEncuestas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"encuestas",
+								"todasLasEncuestas"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "11",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comentarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk4ODk0NjAsImV4cCI6MTcxOTkxOTQ2MCwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.CM8Idkc08VxSKPtRtZF70VlIQZiZa137RrY_RiBrIQo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idMesa",
+									"value": "4",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeMesa",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeRestaurante",
+									"value": "9",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeMozo",
+									"value": "7",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeCocinero",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "experiencia",
+									"value": "muy rico todo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/encuestas/comentariosEncuestas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"encuestas",
+								"comentariosEncuestas"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "11",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "descarga csv",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idMesa",
+									"value": "4",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "idPedido",
+									"value": "15",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeMesa",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeRestaurante",
+									"value": "9",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeMozo",
+									"value": "7",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "puntajeCocinero",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "experiencia",
+									"value": "muy rico todo",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/descargarComandas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"descargarComandas"
+							],
+							"query": [
+								{
+									"key": "idComanda",
+									"value": "11",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mesa mas usada",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjY0NTYsImV4cCI6MTcxOTk1NjQ1NiwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.QMlk5lDuKS4pzGrYBP__ld-wW0gaKQhfpMUATvS3uHc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/mesa/mesaMasUsada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"mesa",
+								"mesaMasUsada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pedidosPorTiempo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjY0NTYsImV4cCI6MTcxOTk1NjQ1NiwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.QMlk5lDuKS4pzGrYBP__ld-wW0gaKQhfpMUATvS3uHc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/pedidosPorTiempo?criterio=Demorados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"pedidosPorTiempo"
+							],
+							"query": [
+								{
+									"key": "criterio",
+									"value": "Demorados"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pedidosPorTiempo atiempo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjY0NTYsImV4cCI6MTcxOTk1NjQ1NiwiZGF0YSI6eyJpZCI6MywibWFpbCI6InNvY2lvQGNvbWFuZGEuY29tIiwicGVyZmlsIjoiU29jaW8iLCJwZXNvIjo1fX0.QMlk5lDuKS4pzGrYBP__ld-wW0gaKQhfpMUATvS3uHc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:666/public/api/comanda/pedidosPorTiempo?criterio=ATiempo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "666",
+							"path": [
+								"public",
+								"api",
+								"comanda",
+								"pedidosPorTiempo"
+							],
+							"query": [
+								{
+									"key": "criterio",
+									"value": "ATiempo"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
